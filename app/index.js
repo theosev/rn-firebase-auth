@@ -6,24 +6,24 @@
  * @flow strict-local
  */
 
+import type { Node } from 'react';
 import React from 'react';
-import type {Node} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
+    SafeAreaView,
+    ScrollView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    useColorScheme,
+    View
 } from 'react-native';
 
 import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
+    Colors,
+    DebugInstructions,
+    Header,
+    LearnMoreLinks,
+    ReloadInstructions
 } from 'react-native/Libraries/NewAppScreen';
 
 const Section = ({children, title}): Node => {
@@ -52,7 +52,7 @@ const Section = ({children, title}): Node => {
   );
 };
 
-const App: () => Node = () => {
+export default function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -108,5 +108,3 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
-
-export default App;
