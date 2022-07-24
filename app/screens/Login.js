@@ -29,6 +29,7 @@ export default function Login({ navigation }) {
                 <TextInput
                     style={Style.input}
                     placeholder='password'
+                    secureTextEntry={true}
                     onChangeText={setPassword}
                 />
                 <DummyButton text='Log in' onPress={() => signIn({ email, password })}/>

@@ -25,6 +25,7 @@ export default function SignUp() {
                 <TextInput
                     style={Style.input}
                     placeholder='password'
+                    secureTextEntry={true}
                     onChangeText={setPassword}
                 />
                 <DummyButton text='Sign up' onPress={() => signUp({ email, password })}/>

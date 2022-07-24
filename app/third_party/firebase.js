@@ -46,4 +46,8 @@ export default class Firebase {
             throw error
         }
     }
+
+    async RefreshToken() {
+        
+    }
 }

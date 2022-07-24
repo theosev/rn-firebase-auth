@@ -35,5 +35,5 @@ export default class Auth {
         } catch (error) {
             throw error
         }
-    }   
+    }
 }
