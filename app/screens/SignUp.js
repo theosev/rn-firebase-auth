@@ -10,7 +10,7 @@ import { Style } from '../config/styles';
 import { Context } from '../logic/Context';
  
 export default function SignUp() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { signUp } = useContext(Context);
 
@@ -19,15 +19,15 @@ export default function SignUp() {
             <View style={Style.form}>
                 <TextInput
                     style={Style.input}
-                    placeholder='username'
-                    onChangeText={setUsername}
+                    placeholder='email'
+                    onChangeText={setEmail}
                 />
                 <TextInput
                     style={Style.input}
                     placeholder='password'
                     onChangeText={setPassword}
                 />
-                <DummyButton text='Sign up' onPress={() => signUp({ username, password })}/>
+                <DummyButton text='Sign up' onPress={() => signUp({ email, password })}/>
             </View>
         </KeyboardAvoidingView>
     );

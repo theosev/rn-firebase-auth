@@ -10,7 +10,7 @@ import { Style } from '../config/styles';
 import { Context } from '../logic/Context';
  
 export default function Login({ navigation }) {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { signIn } = useContext(Context);
 
@@ -23,15 +23,15 @@ export default function Login({ navigation }) {
             <View style={Style.form}>
                 <TextInput
                     style={Style.input}
-                    placeholder='username'
-                    onChangeText={setUsername}
+                    placeholder='email'
+                    onChangeText={setEmail}
                 />
                 <TextInput
                     style={Style.input}
                     placeholder='password'
                     onChangeText={setPassword}
                 />
-                <DummyButton text='Log in' onPress={() => signIn({ username, password })}/>
+                <DummyButton text='Log in' onPress={() => signIn({ email, password })}/>
                 <View style={{marginBottom: 10}}></View>
                 <DummyButton text='Sign up' onPress={sign_up}/>
             </View>

@@ -3,14 +3,37 @@
  * @flow strict-local
  */
 
-export async function SignIn(data) {
-    console.log('Execute sign in...')
-}
+import Firebase from "../third_party/firebase";
 
-export async function signUp(data) {
-    console.log('Execute sign up...')
-}
-
-export async function signOut() {
-    console.log('Execute sign out...')
+export default class Auth {
+    constructor() {}
+    
+    async SignIn(data) {
+        const firebase = new Firebase();
+        try {
+            const token = await firebase.LoginUser(data.email, data.password);
+            return token;
+        } catch (error) {
+            throw error
+        }
+    }
+    
+    async SignUp(data) {
+        const firebase = new Firebase();
+        try {
+            const token = await firebase.CreateUser(data.email, data.password);
+            return token;
+        } catch (error) {
+            throw error
+        }
+    }
+    
+    async SignOut() {
+        const firebase = new Firebase();
+        try {
+            await firebase.SignOutUser();
+        } catch (error) {
+            throw error
+        }
+    }   
 }

@@ -6,7 +6,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React, { useMemo, useReducer } from 'react';
-import { SignIn, signOut, signUp } from './logic/Auth';
+import Auth from './logic/Auth';
 import { Context } from './logic/Context';
 import { reducers } from './logic/Reducers';
 import { State } from './logic/State';
@@ -18,19 +18,32 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [state, dispatch] = useReducer(reducers, State);
+  const auth = new Auth();
   const context = useMemo(
     () => ({
       signIn: async (data) => {
-        await SignIn(data);
-        dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+        try {
+          const token = await auth.SignIn(data);
+          dispatch({ type: 'SIGN_IN', token:  token});
+        } catch (error) {
+          console.log(error)
+        }
       },
       signOut: async () => {
-        await signOut();
-        dispatch({ type: 'SIGN_OUT' })
+        try {
+          await auth.SignOut();
+          dispatch({ type: 'SIGN_OUT' })
+        } catch (error) {
+          console.log(error)
+        }
       },
       signUp: async (data) => {
-        await signUp(data);
-        dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+        try {
+          const token = await auth.SignUp(data);
+          dispatch({ type: 'SIGN_IN', token:  token});
+        } catch (error) {
+          console.log(error)
+        }
       },
     }));
 
