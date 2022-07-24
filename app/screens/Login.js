@@ -3,19 +3,19 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { KeyboardAvoidingView, TextInput, View } from 'react-native';
 import DummyButton from '../components/Button';
 import { Style } from '../config/styles';
+import { Context } from '../logic/Context';
  
-export default function Login() {
-
-    function login() {
-        console.log('Log in')
-    }
+export default function Login({ navigation }) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const { signIn } = useContext(Context);
 
     function sign_up() {
-        console.log('Sign up')
+        navigation.navigate('SignUp')
     }
 
     return (
@@ -24,12 +24,14 @@ export default function Login() {
                 <TextInput
                     style={Style.input}
                     placeholder='username'
+                    onChangeText={setUsername}
                 />
                 <TextInput
                     style={Style.input}
                     placeholder='password'
+                    onChangeText={setPassword}
                 />
-                <DummyButton text='Log in' onPress={login}/>
+                <DummyButton text='Log in' onPress={() => signIn({ username, password })}/>
                 <View style={{marginBottom: 10}}></View>
                 <DummyButton text='Sign up' onPress={sign_up}/>
             </View>

@@ -3,7 +3,8 @@
  * @format
  * @flow
  */
- import {
+
+import {
     StyleSheet
 } from 'react-native';
 
