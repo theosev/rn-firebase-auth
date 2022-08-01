@@ -46,5 +46,5 @@ npx react-native run-android
 Enjoy!
 
 ## License
- 
+
 The MIT License (MIT)

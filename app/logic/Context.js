@@ -4,6 +4,6 @@
  * @flow
  */
 
-import { createContext } from "react";
+import {createContext} from 'react';
 
 export const Context = createContext();

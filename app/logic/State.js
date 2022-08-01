@@ -5,8 +5,8 @@
  */
 
 export const State = {
-    user: {
-        auth_status: null,
-        token: null
-    }
-}
+  user: {
+    auth_status: null,
+    token: null,
+  },
+};
